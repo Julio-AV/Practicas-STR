@@ -1,0 +1,254 @@
+V "GNAT Lib v10"
+M P W=b
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLICIT_LOOPS
+RV SPARK_05
+
+U registros%b		registros.adb		83bc1024 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.strings.unbounded.text_io%s  a-suteio.adb	a-suteio.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.enumeration_aux%s  a-tienau.adb	a-tienau.ali
+Z ada.text_io.enumeration_io%s
+Z ada.text_io.fixed_io%s
+Z ada.text_io.float_aux%s  a-tiflau.adb		a-tiflau.ali
+Z ada.text_io.generic_aux%s  a-tigeau.adb	a-tigeau.ali
+Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+Z ada.text_io.integer_io%s
+W ada.text_io.unbounded_io%s  a-tiunio.ads	a-tiunio.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.arith_64%s	s-arit64.adb		s-arit64.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.exp_lli%s	s-explli.adb		s-explli.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_enum_new%s	s-imenne.adb		s-imenne.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.img_real%s	s-imgrea.adb		s-imgrea.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.val_enum%s	s-valenu.adb		s-valenu.ali
+
+D ada.ads		20230707070819 76789da1 ada%s
+D a-charac.ads		20230707070819 2d3ec45b ada.characters%s
+D a-chlat1.ads		20230707070819 66457d31 ada.characters.latin_1%s
+D a-except.ads		20230707070819 a7106115 ada.exceptions%s
+D a-finali.ads		20230707070819 bf4f806b ada.finalization%s
+D a-ioexce.ads		20230707070819 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20230707070819 119b8fb3 ada.streams%s
+D a-string.ads		20230707070819 90ac6797 ada.strings%s
+D a-strmap.ads		20230707070819 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20230707070819 1656705b ada.strings.unbounded%s
+D a-suteio.ads		20230707070819 26d8e9aa ada.strings.unbounded.text_io%s
+D a-tags.ads		20230707070819 491b781d ada.tags%s
+D a-textio.ads		20230707070819 aef4d56d ada.text_io%s
+D a-tienau.ads		20230707070819 6a9c157b ada.text_io.enumeration_aux%s
+D a-tienio.ads		20230707070819 2e79c9bf ada.text_io.enumeration_io%s
+D a-tienio.adb		20230707070819 c9e6b5af ada.text_io.enumeration_io%b
+D a-tifiio.ads		20230707070819 ad0445c9 ada.text_io.fixed_io%s
+D a-tifiio.adb		20230707070819 e4f802ff ada.text_io.fixed_io%b
+D a-tiflau.ads		20230707070819 c0393f21 ada.text_io.float_aux%s
+D a-tigeau.ads		20230707070819 9eaed207 ada.text_io.generic_aux%s
+D a-tiinau.ads		20230707070819 8114c8e4 ada.text_io.integer_aux%s
+D a-tiinio.ads		20230707070819 390edddb ada.text_io.integer_io%s
+D a-tiinio.adb		20230707070819 df9cd7af ada.text_io.integer_io%b
+D a-tiunio.ads		20230707070819 759c6b0c ada.text_io.unbounded_io%s
+D a-unccon.ads		20230707070819 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20230707070819 5ab55268 interfaces%s
+D i-cstrea.ads		20230707070819 e53d8b8e interfaces.c_streams%s
+D registros.adb		20240207074914 685a37b4 registros%b
+D system.ads		20230707070819 4635ec04 system%s
+D s-arit64.ads		20230707070819 404da5f2 system.arith_64%s
+D s-atocou.ads		20230707070819 b45c2d8d system.atomic_counters%s
+D s-conca2.ads		20230707070819 02a0d7d0 system.concat_2%s
+D s-conca3.ads		20230707070819 0b705ca5 system.concat_3%s
+D s-crtl.ads		20230707070819 0ebbdb71 system.crtl%s
+D s-exctab.ads		20230707070819 54135002 system.exception_table%s
+D s-explli.ads		20230707070819 ba60219a system.exp_lli%s
+D s-ficobl.ads		20230707070819 078245e4 system.file_control_block%s
+D s-finmas.ads		20230707070819 7811a767 system.finalization_masters%s
+D s-finroo.ads		20230707070819 4ff27390 system.finalization_root%s
+D s-imenne.ads		20230707070819 614c06c0 system.img_enum_new%s
+D s-imgint.ads		20230707070819 02dbe0c2 system.img_int%s
+D s-imgrea.ads		20230707070819 c7a851e2 system.img_real%s
+D s-memory.ads		20230707070819 597d6634 system.memory%s
+D s-parame.ads		20230707070819 48ec542b system.parameters%s
+D s-pooglo.ads		20230707070819 ede33ef8 system.pool_global%s
+D s-secsta.ads		20230707070819 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20230707070819 a7318a92 system.soft_links%s
+D s-stache.ads		20230707070819 a37c21ec system.stack_checking%s
+D s-stalib.ads		20230707070819 09bd3940 system.standard_library%s
+D s-stalib.adb		20230707070819 f2fe2716 system.standard_library%b
+D s-stoele.ads		20230707070819 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20230707070819 b16154c2 system.storage_pools%s
+D s-stposu.ads		20230707070819 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20230707070819 aedef97e system.stream_attributes%s
+D s-traent.ads		20230707070819 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20230707070819 34867c83 system.unsigned_types%s
+D s-valenu.ads		20230707070819 6201ebfb system.val_enum%s
+D s-wchcon.ads		20230707070819 1b7d22d2 system.wch_con%s
+G a e
+G c Z b b [registros standard 8 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 28|3r1 4r1 5r1 6r1 7r5 13r25 14r25 15r26 16r23 17r26 29r13
+. 53r5 85r23 224r74 226r74
+X 8 a-string.ads
+16K13*Strings 35e16 28|4r5 5r5 29r17 224r78 226r78
+X 10 a-strunb.ads
+82K21*Unbounded 756e26 28|4w13 5r13 29r25 224r86 226r86
+87R9*Unbounded_String<5|43R9> 739e14 28|29r35
+116V13*To_String{string} 28|224s96 226s96
+X 11 a-suteio.ads
+39K31*Text_IO 61e34 28|5w23
+X 13 a-textio.ads
+57K13*Text_IO 727e16 28|3w5 6r5 7r9 13r29 14r29 15r30 16r27 17r30 53r9 85r27
+264U14*New_Line 28|60s5 68s5 71s5 74s5 82s9 87s9 90s9 215s5 216s5 220s5
+273U14*Skip_Line 28|84s9
+465U14*Put 28|52s5 58s5 66s5 69s5 72s5 81s9 83s9 88s9 199s5 202s9
+508U14*Put_Line 28|43s5 44s5 45s5 55s5 212s9 217s5 224s5 226s5 230s5
+X 15 a-tienio.ads
+26k21*Enumeration_IO 76e31 28|14r37
+34U14 Get 28|70s14[14]
+X 17 a-tifiio.ads
+26k21*Fixed_IO 92e25 28|17r38
+40U14 Get 28|89s19[17]
+62U14 Put 28|59s15[17]
+X 22 a-tiinio.ads
+46k21*Integer_IO 108e27 28|13r37 15r38 16r35
+59U14 Get 28|67s14[13] 73s15[15] 200s12[16]
+X 24 a-tiunio.ads
+25K21*Unbounded_IO 61e29 28|6w13 53r17 85r35
+41U14*Put_Line=43:42 28|53s30
+49V13*Get_Line=50:42{10|87R9} 28|85s48
+X 26 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 28 registros.adb
+8U11*registros 8b11 232l5 232t14
+9I6 dias_t<short_short_integer> 13r48 21r11 45r25
+10E6 meses_t 10e118 14r52 22r11 44r24
+10n18 enero{10E6}
+10n25 febrero{10E6}
+10n34 marzo{10E6}
+10n41 abril{10E6}
+10n48 mayo{10E6}
+10n54 junio{10E6}
+10n61 julio{10E6}
+10n68 agosto{10E6}
+10n76 septiembre{10E6}
+10n88 octubre{10E6}
+10n97 noviembre{10E6}
+10n108 diciembre{10E6}
+11O6 nota_t 17r47 31r11 147r49 156r12 161r10 174r10 189r9
+12I6 year_t<integer> 15r49 23r12 43r25
+13K9 ES_dia_t[22|46] 67r5
+14K9 ES_mes_t[15|26] 70r5
+15K9 ES_year_t[22|46] 73r5
+16K9 ES_int[22|46] 200r5
+17K9 Es_nota_t[17|26] 59r5 89r9
+20R6 fecha_t 24e12 30r12 41r32 64r32 100r37 100r58
+21i5 Dia{9I6} 45r44 67m24 112r23 112r36 224r163 226r163 230r74 230r193
+22e5 Mes{10E6} 44r44 70m24 109r19 109r32 111r22 111r35 224r202 226r202 230r114
+. 230r233
+23i5 Year{12I6} 43r44 73m25 106r15 106r29 108r18 108r32 224r240 226r240 230r153
+. 230r272
+27R6 registro_t 33e11 35r45 48r38 78r7 122r51 124r14 135r51 136r7 159r49
+. 160r12 172r49 173r12 190r14 191r14 192r15 193r14
+29r5 Titulo{10|87R9} 53r48 85m13 224r117 226r117
+30r5 Fecha{20R6} 57r25 91m22 128r35 128r49 140r36 140r50 224r157 224r196
+. 224r234 226r157 226r196 226r234 230r68 230r108 230r147 230r187 230r227
+. 230r266
+31o5 Nota{11O6} 59r28 89m27 154r39 164r19 165r30 177r19 178r30 224r44 226r44
+35A6 array_t(27R6)<integer> 37r25 205r22
+37P6 pArray_t(35A6) 77r34 122r34 135r34 147r32 159r32 172r32 186r13
+41U11 printFecha 41b11 41>22 46l5 46t15 57s5
+41r22 fecha{20R6} 43r38 44r38 45r38
+48U11 printPelicula 48b11 48>25 62l5 62t18 213s9
+48r25 registro{27R6} 53r39 57r16 59r19
+64U11 getFecha 64b11 64<20 75l5 75t13 91s9
+64r20 fecha{20R6} 67m18 67r18 70m18 70r18 73m19 73r19
+77U11 getPeliculas 77b11 77<24 96l5 96t17 209s5
+77p24 arr{37P6} 80r14 92r9
+78r1 reg{27R6} 85m9 89m23 89r23 91m18 91r18 92r19
+80i9 i{integer} 81r27 92r13
+100V10 checkFechaMenor{boolean} 100b10 100>26 100>46 120l5 120t20 128s12
+. 140s16
+100r26 fecha1{20R6} 106r8 108r11 109r12 111r15 112r16
+100r46 fecha2{20R6} 106r22 108r25 109r25 111r28 112r29
+103b1 es_menor{boolean} 107m9 110m13 113m17 118r12
+122V10 getFechaMinima{27R6} 122b10 122>25 133l5 133t19 228s20
+122p25 arr{37P6} 126r15 127r14 128r42 129r23
+124r5 minimo{27R6} 126m5 126r5 128r28 129m13 129r13 132r12
+127i9 i{integer} 128r46 129r27
+135V10 getFechaMaxima{27R6} 135b10 135>25 145l5 145t19 229s20
+135p25 arr{37P6} 138r12 139r14 140r43 141r20
+136r1 max{27R6} 138m5 138r5 140r32 141m13 141r13 144r12
+139i9 i{integer} 140r47 141r24
+147V10 calcularMedia{11O6} 147b10 147>24 157l5 157t18 218s14
+147p24 arr{37P6} 152r14 154r32 156r31
+148f1 media{float} 154m9 154r18 156r19
+152i9 i{integer} 154r36
+159V10 getMenorNota{27R6} 159b10 159>23 170l5 170t17 223s19
+159p23 arr{37P6} 163r14 164r12 165r23 166r25
+160r1 registro{27R6} 166m13 166r13 169r12
+161o1 minimo{11O6} 164r27 165m13
+163i9 i{integer} 164r16 165r27 166r29
+172V10 getMayorNota{27R6} 172b10 172>23 183l5 183t17 222s19
+172p23 arr{37P6} 176r14 177r12 178r23 179r25
+173r1 registro{27R6} 179m13 179r13 182r12
+174o1 minimo{11O6} 177r27 178m13
+176i9 i{integer} 177r16 178r27 179r29
+186p1 array_reg{37P6} 205m5 209m18 209r18 211r14 213r23 218r28 222r32 223r32
+. 228r35 229r35
+187i1 tam{integer} 200m16 201r8 205r35
+188X1 error_tam 203r15
+189o1 media{11O6} 218m5 230r302
+190r1 menor_nota{27R6} 223m5 223r5 224r33 224r106 224r146 224r185 224r223
+191r1 mayor_nota{27R6} 222m5 222r5 226r33 226r106 226r146 226r185 226r223
+192r1 menor_fecha{27R6} 228m5 228r5 230r56 230r96 230r135
+193r1 mayor_fecha{27R6} 229m5 229r5 230r175 230r215 230r254
+211i9 i{integer} 212r32 213r33
+X 29 system.ads
+67M9*Address
+X 30 s-arit64.ads
+44I12*Int64{26|55I9}
+54V13*Multiply_With_Ovflo_Check{44I12} 55i<c,__gnat_mulv64>22
+X 43 s-memory.ads
+53V13*Alloc{29|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{29|67M9} 105i<c,__gnat_realloc>22
+X 50 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+
