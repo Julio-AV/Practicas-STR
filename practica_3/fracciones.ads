@@ -21,7 +21,9 @@ package Fracciones is
     function Denominador(F:fraccion_t) return Positive;
     private
     function mcm(X,Y : fraccion_t) return Integer;
+    function mcd(x, y : Integer) return Integer;
     function mcd(X,Y : fraccion_t) return Integer;
+    procedure reducir(X : in out fraccion_t);
     type fraccion_t is record
     Num: Integer;
     Den: Positive;

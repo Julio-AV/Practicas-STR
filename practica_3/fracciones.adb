@@ -16,6 +16,14 @@ package body Fracciones is
 
     end Escribir;
 
+    procedure reducir(X : in out fraccion_t) is 
+    maxComDiv : Integer;
+    begin
+    maxComDiv := mcd(X.Num, X.Den);    
+    X.Num := X.Num/maxComDiv;
+    X.Den := X.Den/maxComDiv;
+
+    end reducir;
     function "/"(X,Y: Integer) return fraccion_t is 
     --Constructor
     F: fraccion_t;
@@ -66,8 +74,14 @@ package body Fracciones is
     end "*";
 
     function "=" (X, Y: fraccion_t) return Boolean is
+    A : fraccion_t;
+    B : fraccion_t;
     begin
-        null;
+        A := X;
+        B := Y;
+        reducir(A);
+        reducir(B);
+        return (A.Num = B.Num) and (A.Den = B.Num);
     end "=";
     function Numerador (F: fraccion_t) return Integer is
     begin
@@ -91,6 +105,19 @@ package body Fracciones is
         end loop;
         return (X.Den*Y.Den)/m;
     end mcm;
+
+    function mcd(x, y : Integer) return Integer is
+        Temp : Integer;
+        A : Integer := x;
+        B : Integer := y;
+    begin
+        while B /= 0 loop
+            Temp := B;
+            B := A mod B;
+            A := Temp;
+        end loop;
+        return A;
+    end mcd;
 
     function mcd(X,Y : in fraccion_t) return Integer is
         A, B : Integer;
