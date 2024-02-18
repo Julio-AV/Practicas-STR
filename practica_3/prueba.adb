@@ -50,7 +50,7 @@ A: fraccion_t := 2/3;
  if A-A /= 0/3 then raise Practica_no_Apta; end if;
 
  Put("A/P = ");
- Escribir(A/P);
+ Escribir(A/P); --Aquí caga
  P:=A/P;
  P:=1/1;
  for I in 1..10 loop
