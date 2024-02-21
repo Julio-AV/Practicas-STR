@@ -18,6 +18,7 @@ package body Fracciones is
     end Escribir;
 
     procedure reducir(X : in out fraccion_t) is 
+    --Reduce la fracción
     maxComDiv : Integer;
     begin
     maxComDiv := mcd(X.Num, X.Den);    
@@ -30,7 +31,7 @@ package body Fracciones is
     F : fraccion_t;
     begin
         if Y = 0 then
-        --En vez de 
+        --En vez de explotar, devuelve 0/1
             Put_Line("NO SE PUEDE DIVIDIR ENTRE 0, SE RETORNARÁ 0/1");
             return 0/1;
 
@@ -48,6 +49,7 @@ package body Fracciones is
     num : Integer;
     den : Integer;
     begin
+    --Producto de extremos por producto de medios
         num := X.Num * Y.Den;
         den := X.Den * Y.Num;
         return num/den;
