@@ -29,6 +29,12 @@ package body Fracciones is
     --Constructor
     F : fraccion_t;
     begin
+        if Y = 0 then
+        --En vez de 
+            Put_Line("NO SE PUEDE DIVIDIR ENTRE 0, SE RETORNARÁ 0/1");
+            return 0/1;
+
+        end if;
         if (X < 0 and Y < 0) or (X > 0 and Y > 0)  then
             F := (num => abs(X), den => Positive(abs(Y)));
         else

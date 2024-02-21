@@ -41,7 +41,7 @@ D a-unccon.ads		20230707070819 0e9b276f ada.unchecked_conversion%s
 D fracciones.ads	20240215171602 4bae8772 fracciones%s
 D interfac.ads		20230707070819 5ab55268 interfaces%s
 D i-cstrea.ads		20230707070819 e53d8b8e interfaces.c_streams%s
-D prueba.adb		20240218112033 cd7b6ae6 prueba%b
+D prueba.adb		20240221071104 cd7b6ae6 prueba%b
 D system.ads		20230707070819 4635ec04 system%s
 D s-crtl.ads		20230707070819 0ebbdb71 system.crtl%s
 D s-exctab.ads		20230707070819 54135002 system.exception_table%s
