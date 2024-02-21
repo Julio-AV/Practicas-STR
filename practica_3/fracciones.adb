@@ -44,11 +44,6 @@ package body Fracciones is
     begin
         num := X.Num * Y.Den;
         den := X.Den * Y.Num;
-        put("NUM: ");
-        ES_Integer.put(num);
-        New_Line;
-        put("DEN: ");
-        ES_Integer.put(den);
         return num/den;
     end "/";
 
