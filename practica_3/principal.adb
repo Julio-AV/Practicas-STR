@@ -2,7 +2,7 @@
  procedure Principal is
 package Colas_de_Integer is new Colas (Integer, Integer'Image);
 use Colas_de_Integer;
-Práctica_no_Apta: exception;
+Practica_no_Apta: exception;
 
 C1, C2, C3: cola_t;
 E: Integer;
@@ -21,12 +21,14 @@ for I in 1..10 loop
 
  new_line;
  Put_Line("1.- Comprobando si C1 = C1 .... ");
- if C1 /= C1 then raise Práctica_no_Apta; end if; Put("OK!");
+ if C1 /= C1 then raise Practica_no_Apta; end if; Put("OK!");
  new_line;
  Put_Line("2.- Comprobando si C1 /= C2 .... ");
- if C1 = C2 then raise Práctica_no_Apta; end if; Put("OK!");
+ if C1 = C2 then raise Practica_no_Apta; end if; Put("OK!");
 
- Poner (1, C3); Copiar (C2, C3);
+ Poner (1, C3); 
+ put("HOLAAAAAAAAA");
+ Copiar (C2, C3);
  Put_Line("En C2 tenemos ");
  MostrarCola(C2);
  new_line;
@@ -34,7 +36,7 @@ for I in 1..10 loop
  MostrarCola(C3);
  new_line;
  Put_Line("3.- Comprobando si C2 = C3 .... "); Put("OK!");
- if C2 /= C3 then raise Práctica_no_Apta; end if;
+ if C2 /= C3 then raise Practica_no_Apta; end if;
 
  Put_Line("4.- Comprobando copiar .... ");
  Poner (100, C3);
@@ -45,16 +47,14 @@ for I in 1..10 loop
  Put_Line("En C3 tenemos ");
  MostrarCola(C3);
  new_line;
- if C2 = C3 then raise Práctica_no_Apta; end if; Put("OK!");
-
+ if C2 = C3 then raise Practica_no_Apta; end if; Put("OK!");
  Quitar (E, C3);
  Put_Line("En C2 tenemos ");
  MostrarCola(C2);
  Put_Line("En C3 tenemos ");
  MostrarCola(C3);
  Put_Line("5.- Comprobando si C2 = C3 .... ");
- if C2 = C3 then raise Práctica_no_Apta; end if; Put("OK!");
-
+ if C2 = C3 then raise Practica_no_Apta; end if; Put("OK!");
 
  while not Esta_Vacia (C2) loop
  Quitar (E, C2); Poner (E, C1);
@@ -68,7 +68,7 @@ for I in 1..10 loop
  Poner(200, C2);
 
  Put_Line("6.- Comprobando quitar .... ");
- if C1 /= C2 then raise Práctica_no_Apta; end if; Put("OK!");
+ if C1 /= C2 then raise Practica_no_Apta; end if; Put("OK!");
 
  while not Esta_Vacia (C3) loop
  Quitar (E, C3);
@@ -90,7 +90,7 @@ for I in 1..10 loop
  MostrarCola(C3);
  new_line;
  Put_Line("7.- Comprobando si C2 = C3 .... ");
- if C2 = C3 then raise Práctica_no_Apta; end if; Put("OK!");
+ if C2 = C3 then raise Practica_no_Apta; end if; Put("OK!");
 
 
  Put_Line("8.- Comprobando liberar memoria .... ");
@@ -105,7 +105,7 @@ for I in 1..10 loop
  end loop;
  Put_Line ("Práctica apta.");
  exception
- when Práctica_no_Apta =>
+ when Practica_no_Apta =>
  Put_Line ("Práctica no apta:");
  Put_Line ("Alguna operación no está bien implementada.");
  when Storage_Error =>
