@@ -15,6 +15,7 @@ private
 
 -- Definición del tipo "cola_t"
 -- En esta ocasión se implementa una cola dinámica
+
 type Nodo;
 type ref_Nodo is access Nodo;
 type Nodo is record
@@ -26,4 +27,5 @@ type cola_t is record
     ptr_Ultimo : ref_Nodo;
 end record;
 function getPenultimo(cola : cola_t) return ref_Nodo;
+
 end Colas;
