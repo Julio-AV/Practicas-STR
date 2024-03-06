@@ -17,6 +17,9 @@ begin
     end if;
     return nodoAnterior;
 end getPenultimo;
+
+
+
 procedure Poner (el_Elemento: elemento_t; en_la_Cola: in out cola_t) is 
     newNode : ref_Nodo := new Nodo;
 begin 
@@ -66,10 +69,20 @@ begin
     end loop;
 end MostrarCola;
 
+procedure cleanCola(cola : in out cola_t) is 
+    --Limpia la cola para que no se quede colgando cuando se usa Copiar()
+    E : elemento_t;
+begin 
+    while not Esta_Vacia (cola) loop
+        Quitar (E, cola);
+    end loop;
+end cleanCola;
+
 procedure Copiar ( Origen: cola_t; Destino:in out cola_t) is 
     nodoActual : ref_Nodo := Origen.ptr_Primero;
     nodoNuevo : ref_Nodo := new Nodo;
 begin
+    cleanCola(Destino);
     if Origen.ptr_Primero /= null then
         nodoNuevo.all.Datos := nodoActual.all.Datos;
         Destino.ptr_Primero := nodoNuevo;

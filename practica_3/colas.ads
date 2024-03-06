@@ -27,5 +27,5 @@ type cola_t is record
     ptr_Ultimo : ref_Nodo;
 end record;
 function getPenultimo(cola : cola_t) return ref_Nodo;
-
+procedure cleanCola(cola : in out cola_t);
 end Colas;

@@ -27,7 +27,6 @@ for I in 1..10 loop
  if C1 = C2 then raise Practica_no_Apta; end if; Put("OK!");
 
  Poner (1, C3); 
- put("HOLAAAAAAAAA");
  Copiar (C2, C3);
  Put_Line("En C2 tenemos ");
  MostrarCola(C2);
