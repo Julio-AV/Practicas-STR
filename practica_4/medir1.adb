@@ -11,9 +11,10 @@ T_Inicial : Time;
 T_Final : Time;
 L : Time_Span;
 temperatura_respuesta : Temperaturas;
+Cp : Temperaturas;
 begin
     Sensor.Leer(temperatura_ambiente); --Leemos la temperatura en el horno antes de calentarlo para hallar la temperatura ambiente
-    put("La temperatura ambiente es de " & temperatura_ambiente'Image & " grados");
+    Put_Line("La temperatura ambiente es de " & temperatura_ambiente'Image & " grados");
     T_Inicial := Clock;
     Calefactor.Escribir(Potencias(100));
     Sensor.Leer(temperatura_respuesta);
@@ -22,8 +23,8 @@ begin
     end loop;
     T_Final := Clock;
     L := T_Final - T_Inicial;
-    put("El retardo en la respuesta L es de " & L'Image);
-     
+    Put_Line("El retardo en la respuesta L es de " & to_duration(L)'Image & " segundos");
+
  
     
     
