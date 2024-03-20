@@ -3,9 +3,8 @@ with calefactor; use calefactor;
 with Sensor; use Sensor;
 with ada.real_time; use ada.real_time;
 with ada.text_IO; use ada.text_IO;
+with Horno; 
 procedure medir1 is 
---  sens : Sensor;
---  calefact : Calefactor;
 P : Potencias := Potencias(1000);
 temperatura_ambiente : Temperaturas;
 T_Inicial : Time;
