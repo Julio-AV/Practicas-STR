@@ -1,16 +1,16 @@
 with Ada.Real_Time; use Ada.Real_Time;
 package body Retardadores is
-   type array_Elementos is array (1..Tamaño) of Elementos;
+   type array_Elementos is array (1..Tamano) of Elementos;
 
-   protected Línea_de_Retardo is
+   protected Linea_de_Retardo is
       procedure Escribir (el_Elemento: Elementos);
       procedure Leer (un_Elemento: out Elementos);
       procedure Desplazar;
    private
-      Línea: array_Elementos;
+      Linea: array_Elementos;
       Entrada, Salida: Elementos;
-   end Línea_de_Retardo;
-   protected body Línea_de_Retardo is
+   end Linea_de_Retardo;
+   protected body Linea_de_Retardo is
       procedure Escribir (el_Elemento: Elementos) is
       begin
          Entrada := el_Elemento;
@@ -21,33 +21,33 @@ package body Retardadores is
       end Leer;
       procedure Desplazar is
       begin
-         Salida := Línea (Línea'Last);
-         Línea (Línea'First+1..Línea'Last) :=
-                          Línea (Línea'First..Línea'Last-1);
-         Línea (Línea'First) := Entrada;
+         Salida := Linea (Linea'Last);
+         Linea (Linea'First+1..Linea'Last) :=
+                          Linea (Linea'First..Linea'Last-1);
+         Linea (Linea'First) := Entrada;
       end Desplazar;
-   end Línea_de_Retardo;
+   end Linea_de_Retardo;
 
    task Centinela;
    task body Centinela is
       Periodo: constant Time_Span :=
-          To_Time_Span (Duration(Retardo)/Duration(Tamaño));
+          To_Time_Span (Duration(Retardo)/Duration(Tamano));
       Instante_Siguiente: Time := Clock;
    begin
       loop
          delay until Instante_Siguiente;
-         Línea_de_Retardo.Desplazar;
+         Linea_de_Retardo.Desplazar;
          Instante_Siguiente := Instante_Siguiente + Periodo;
       end loop;
    end Centinela;
 
    procedure Escribir (el_Elemento: Elementos) is
    begin
-      Línea_de_Retardo.Escribir (el_Elemento);
+      Linea_de_Retardo.Escribir (el_Elemento);
    end Escribir;
    procedure Leer (un_Elemento: out Elementos) is
    begin
-      Línea_de_Retardo.Leer (un_Elemento);
+      Linea_de_Retardo.Leer (un_Elemento);
    end Leer;
    procedure Parar is
    begin

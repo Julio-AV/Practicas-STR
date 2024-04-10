@@ -1,19 +1,20 @@
+--
 with Ada.Real_Time; use Ada.Real_Time;
 with Retardadores;
 package body Horno is
 
    -- Retardo
    L: constant Float := 1.5;
-   -- Periodo de la simulación;
+   -- Periodo de la simulaciï¿½n;
    Ts: constant := 0.1;
    package Retardador_de_Potencias is new
                    Retardadores (Retardo => L,
                                Elementos => Potencias,
-                                  Tamaño => Positive(L/Ts));
+                                  Tamano => Positive(L/Ts));
 
 
-   Ct: constant := 1_500.0; -- J/ºC Capacidad térmica
-   Cp: constant := 15.0; -- J/(ºC*s) Coeficiente de pérdidas
+   Ct: constant := 1_500.0; -- J/ï¿½C Capacidad tï¿½rmica
+   Cp: constant := 15.0; -- J/(ï¿½C*s) Coeficiente de pï¿½rdidas
    T_Ambiente: constant Temperaturas := 20.0;
 
    -- Objeto protegido que almacena el estado del horno
@@ -27,7 +28,7 @@ package body Horno is
       P: Potencias := 0.0;
    end Estado;
 
-   -- Tarea que se encarga de cambiar periódicamente
+   -- Tarea que se encarga de cambiar periï¿½dicamente
    -- el estado del horno.
    task Centinela;
 
