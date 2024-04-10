@@ -1,11 +1,10 @@
 import pandas as pd
-import matplotlib
 import matplotlib.pyplot as plt
-matplotlib.use('TkAgg')
 
 def graficar_desde_archivo(archivo):
     with open(archivo, 'r') as f:
         datos = f.read().strip().split('\n')
+        datos = datos[0:50]
 
     x = []
     y = []
@@ -17,11 +16,14 @@ def graficar_desde_archivo(archivo):
 
     plt.figure(figsize=(10, 6))
     plt.plot(x, y, marker='o', linestyle='-')  # Gráfico de línea con marcadores circulares
-    plt.xlabel('X')
-    plt.ylabel('Y')
-    plt.title('Gráfico de Y en función de X')
+    plt.xlabel('t')
+    plt.ylabel('C')
+    plt.title('Gráfico de temperatura en función del tiempo')
     plt.grid(True)
     plt.show()
 
 # Reemplaza 'archivo.txt' con la ruta de tu archivo de datos
+ruta_1 = 'C:/Users/vande/OneDrive/Escritorio/UAH/Sistemas en tiempo real/LAB/practica5'
+
 graficar_desde_archivo('datosHorno.txt')
+print("Salí")
