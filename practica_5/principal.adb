@@ -26,7 +26,7 @@ begin
         t_diff := t_actual - t_ini;
         Put_Line(to_duration(t_diff)'Image & " ;");
 
-        delay 0.3;
+        delay 0.3/10.0;
     end loop;
     while temperaturaAnterior /= temperaturaActual loop
         --Bucle para el regimen transitorio
@@ -34,9 +34,9 @@ begin
         Sensor.Leer(temperaturaActual);
         put(temperaturaActual'Image & ", ");
         t_actual := clock;
-        t_diff := t_actual - t_ini;
+        t_diff := (t_actual - t_ini)*10;
         Put_Line(to_duration(t_diff)'Image & " ;");
-        delay 1.0;
+        delay 0.3/10.0;
     end loop;
 end getDatos;
 begin

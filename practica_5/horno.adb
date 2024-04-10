@@ -53,7 +53,7 @@ package body Horno is
    end Estado;
 
    task body Centinela is
-      Periodo: constant Time_Span := To_Time_Span(Ts);
+      Periodo: constant Time_Span := To_Time_Span(Ts/10.0); --Aqui añadir el mismo factor de aceleración
       Siguiente_Instante: Time := Clock;
       Potencia: Potencias;
    begin

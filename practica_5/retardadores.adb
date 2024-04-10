@@ -31,7 +31,7 @@ package body Retardadores is
    task Centinela;
    task body Centinela is
       Periodo: constant Time_Span :=
-          To_Time_Span (Duration(Retardo)/Duration(Tamano));
+          To_Time_Span (Duration(Retardo/10.0)/Duration(Tamano)); --Aqui añadir el factor de aceleración
       Instante_Siguiente: Time := Clock;
    begin
       loop
