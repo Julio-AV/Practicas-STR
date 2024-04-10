@@ -26,7 +26,7 @@ begin
         t_diff := t_actual - t_ini;
         Put_Line(to_duration(t_diff)'Image & " ;");
 
-        delay 1.0;
+        delay 0.3;
     end loop;
     while temperaturaAnterior /= temperaturaActual loop
         --Bucle para el regimen transitorio
