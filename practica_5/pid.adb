@@ -20,7 +20,6 @@ package body PID is
         
 
         e := Real(R-C);
-		--Asumo que el periodo de muestreo tiene un valor igual a 1
 		con_el_Controlador.S_Anterior := Real(con_el_Controlador.S_Anterior + e*Ts);
 		check := con_el_Controlador.Kp * (e + con_el_Controlador.S_Anterior/con_el_Controlador.Ki + con_el_Controlador.Kd*((e - con_el_Controlador.Error_Anterior)/Ts));
         con_el_Controlador.Error_Anterior := real(e);
