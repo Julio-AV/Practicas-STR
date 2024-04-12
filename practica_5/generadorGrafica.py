@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 def graficar_desde_archivo(archivo):
     with open(archivo, 'r') as f:
         datos = f.read().strip().split('\n')
-        datos = datos[0:10]
+        #datos = datos[0:50]
 
     x = []
     y = []
