@@ -1,6 +1,6 @@
 --
 generic
-   type Real    is digits <>;
+   type Real  is digits <>;
    type Entrada is digits <>; --Entrada al PID (temperatura)
    type Salida  is digits <>; --Salida del PID (Potencia)
 package PID is
