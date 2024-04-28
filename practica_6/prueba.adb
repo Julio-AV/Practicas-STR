@@ -1,6 +1,7 @@
 --
 with Ada.Text_Io, Plan;
 use Ada.Text_Io, Plan;
+with proc; use proc;
 procedure Prueba is
 package Integer_Es is new Integer_Io (Integer);
 use Integer_Es;
@@ -13,6 +14,16 @@ Tareas: array_reg_Planificacion_t := (
  ( 3, 15, 7, 3, 1, 0, False ),
  ( 4, 10, 10, 4, 1, 0, False )
  -- -------------------------------------------------
+ );
+ Tareas2 : array_reg_Planificacion_t := (
+   --Tareas apartado 2
+   (1, 2400, 600, 1, 1, 0, false),
+   (2, 3200, 1200, 1, 1, 0, false),
+   (3, 3600, 2000, 1, 1, 0, false),
+   (4, 4000, 3200, 1, 1, 0, false)
+ );
+ procs : array_ref_Procedimiento_t := (
+   p1'Access,p2'Access,p3'Access,P4'Access
  );
  begin
     Planificar (Tareas);
@@ -35,4 +46,7 @@ Tareas: array_reg_Planificacion_t := (
     end loop;
     Put_line (
     "+---------------------------------------------------+");
+   --Prueba para la parte 2
+   Medir(procs,Tareas2);
+    
  end Prueba;

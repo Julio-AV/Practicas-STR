@@ -1,4 +1,5 @@
 --
+with ada.Text_Io;
 package plan is
     type ref_Procedimiento_t is access procedure;
     type array_ref_Procedimiento_t is array (Positive range <>)
@@ -19,8 +20,9 @@ package plan is
     procedure Medir(Procedimientos: array_ref_Procedimiento_t; Tareas: in out array_reg_Planificacion_t);
     
 private 
-
+    
     procedure bubbleSortTareas(Tareas: in out array_reg_Planificacion_t);
-    procedure printTareas(Tareas: in out array_reg_Planificacion_t);
+    procedure printTareas(Tareas: in array_reg_Planificacion_t);
     procedure sortByName(Tareas: in out array_reg_Planificacion_t);
+    procedure printComputos(Tiempos : array_Tiempos_t;  Tareas: array_reg_Planificacion_t);
 end plan;
