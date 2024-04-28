@@ -49,8 +49,14 @@ package body plan is
                 Tareas(i).Planificable := False;
             end if;
         end loop;
-
+    --sortByName(Tareas);
     end Planificar;
+
+    procedure Medir(Procedimientos: array_ref_Procedimiento_t; Tareas: in out array_reg_Planificacion_t) is 
+        --Tiempos : array_Tiempos_t;
+    begin
+        null;
+    end Medir;
 
     procedure bubbleSortTareas(Tareas: in out array_reg_Planificacion_t) is 
         aux : reg_Planificacion_t;
@@ -65,6 +71,9 @@ package body plan is
                 end if;
             end loop;
         end loop;
+        for i in Tareas'Range loop --Asignamos las prioridades
+            Tareas(i).P := Tareas'Last+1 - i;
+        end loop;
     end bubbleSortTareas;
     procedure printTareas(Tareas: in out array_reg_Planificacion_t) is 
     begin 
@@ -72,5 +81,13 @@ package body plan is
             Put_Line(Tareas(i).Nombre'Image);
         end loop;
     end printTareas;
+
+    procedure sortByName(Tareas: in out array_reg_Planificacion_t) is 
+    Tareas_aux:  array_reg_Planificacion_t := Tareas;
+    begin
+        for i in Tareas_aux'Range loop
+            Tareas(Tareas_aux(i).Nombre) := Tareas_aux(i);
+        end loop;
+    end sortByName;
 end plan;
 

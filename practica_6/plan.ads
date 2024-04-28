@@ -15,11 +15,12 @@ package plan is
     end record;
     type array_reg_Planificacion_t is array (Positive range <>) of reg_Planificacion_t;
     procedure Planificar (Tareas: in out array_reg_Planificacion_t);
-    procedure Medir (Procedimientos: array_ref_Procedimiento_t;
-    Tiempos : out array_Tiempos_t);
+    procedure Medir (Procedimientos: array_ref_Procedimiento_t; Tiempos : out array_Tiempos_t);
+    procedure Medir(Procedimientos: array_ref_Procedimiento_t; Tareas: in out array_reg_Planificacion_t);
     
 private 
 
     procedure bubbleSortTareas(Tareas: in out array_reg_Planificacion_t);
     procedure printTareas(Tareas: in out array_reg_Planificacion_t);
+    procedure sortByName(Tareas: in out array_reg_Planificacion_t);
 end plan;
