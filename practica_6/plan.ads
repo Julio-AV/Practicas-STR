@@ -17,4 +17,9 @@ package plan is
     procedure Planificar (Tareas: in out array_reg_Planificacion_t);
     procedure Medir (Procedimientos: array_ref_Procedimiento_t;
     Tiempos : out array_Tiempos_t);
+    
+private 
+
+    procedure bubbleSortTareas(Tareas: in out array_reg_Planificacion_t);
+    procedure printTareas(Tareas: in out array_reg_Planificacion_t);
 end plan;
