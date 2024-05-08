@@ -2,5 +2,5 @@
 */*.ali
 *\*.o
 *\*.ali
-./practica_7/material_practica_extra
-.\practica_7\material_practica_extra
+./practica_7/material_practica_extra/*
+.\practica_7\material_practica_extra\*
