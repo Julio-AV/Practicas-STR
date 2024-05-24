@@ -34,7 +34,7 @@ procedure Vcv is
 
    type err_ang_t is digits 3 range -3.15 .. 3.15;
    type err_lat_t is digits 4 range -99.99 .. 99.99; 
-   type velocidad_t is digits 5 range 0.00 .. 500.00; 
+   type velocidad_t is digits 5 range -500.00 .. 500.00; 
    type distancia_t is digits 6 range -9999.00 .. 9999.0; 
    type volante_t is digits 3 range -1.0 .. 1.0; 
    type accFreno_t is digits 3 range -1.0 .. 1.0;
@@ -46,9 +46,9 @@ procedure Vcv is
     ki_curv : constant Float :=  0.0;
     kd_curv : constant Float := 0.01; 
     controlVelocidad : control_vel.Controlador;
-    kp_vel : constant Float := 0.1;
-    ki_vel : constant Float :=  0.0001;
-    kd_vel : constant Float := 0.0;
+    kp_vel : constant Float := 0.2;
+    ki_vel : constant Float :=  0.0;
+    kd_vel : constant Float := 0.1;
     velDeseada : velocidad_t;
    c : Character;
 
@@ -74,7 +74,7 @@ procedure Vcv is
    acelFreno : accFreno_t;
    curv : Float;
    --y, cx, sx, ang, fang: Float;
-   cosa : Boolean;
+
 
 begin
 
@@ -146,33 +146,30 @@ begin
     volante := 0.0;   -- Volante al centro (para modo lateral 3)
     refVelocidad := 10.0;  -- Velocidad 10m/s (para modo longitudinal 2)
     --------------------------------------------------------------------------------------------------------------------------
-  cosa := (TipoSig /= 3.0 and dist < distancia_t(200));
-    put_Line("CHECK: " & cosa'Image);
-    put_line("distSig: " & dist'Image);
-    if (TipoSig /= 3.0 and dist < distancia_t(20)) or Tipo /= 3.0   then
+
+    put_line("curvatura: " & curvatura'Image);
+    if (TipoSig /= 3.0 and dist < distancia_t(30)) or Tipo /= 3.0   then
       
      
       refVelocidad := velocidad_t(30);
+      if Curvatura < 100.0 then
+        refVelocidad := velocidad_t(20);
+      end if;
       
     else
       refVelocidad := velocidad_t(120);
     end if;
-    
     control_curv.Controlar(controlCurvatura, Err_lat, 0.0,volante);
-    if Err_ang > 2.6 then  -- Error grande hacia la derecha
-         volante := 1.0;
-      elsif Err_ang < -2.6 then  -- Error grande hacia la izquierda
-         volante := -1.0;
-      elsif Err_ang > 1.6 then  -- Error mediano hacia la derecha
-         volante := volante_t(Err_ang / 2.6) + volante_t(Err_lat / 100.0);
-      elsif Err_ang < -1.6 then  -- Error mediano hacia la izquierda
-         volante := volante_t(Err_ang / 2.6) + volante_t(Err_lat / 100.0);
+   
+      if abs(Err_lat) > 1.6 then  
+         volante := volante_t(Err_ang) + volante_t(Err_lat / 25.0);
+         put_line("Volante: " & volante'Image);
       else  -- Error pequeño
          volante := volante_t(Err_ang / 1.6) + volante_t(Err_lat / 100.0);
       end if;
 
 
-    --control_vel.Controlar(controlVelocidad, velDeseada, velocidad,refVelocidad );
+    --control_vel.Controlar(controlVelocidad, velocidad, refVelocidad,refVelocidad );
 
 
 

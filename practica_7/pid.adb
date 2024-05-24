@@ -32,6 +32,10 @@ package body PID is
       put_line("Up: " & Up'Image);
       put_line("Ui: " & Ui'Image);
       put_line("UD: " & Ud'Image);
+      
+      U := Salida(Up + Ui + Ud);
+      
+      
       -- Actualizaci�n del estado
       Cont.S_Anterior := S;
       Cont.Error_Anterior := E;
