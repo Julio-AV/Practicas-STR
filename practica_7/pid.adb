@@ -1,3 +1,5 @@
+--
+with ada.Text_IO; use ada.Text_IO;
 package body PID is
    procedure Programar (el_Controlador: in out Controlador;
                                     Kp:        Real;
@@ -16,7 +18,7 @@ package body PID is
       S: Real;
       Up, Ui, Ud: Real;
    begin
-      -- Cálculos de control
+      -- Cï¿½lculos de control
        E := Real(R-C);
          -- kp.e(n)
       Up := Cont.Kp * E;
@@ -26,9 +28,11 @@ package body PID is
       Ui := Real(Cont.Ki) * S;
          -- kd.[e(n)-e(n-1)]
       Ud := Real(Cont.Kd) * (E- Real(Cont.Error_Anterior));
-       U := Salida(Up + Ui + Ud);
-
-      -- Actualización del estado
+      
+      put_line("Up: " & Up'Image);
+      put_line("Ui: " & Ui'Image);
+      put_line("UD: " & Ud'Image);
+      -- Actualizaciï¿½n del estado
       Cont.S_Anterior := S;
       Cont.Error_Anterior := E;
    end Controlar;

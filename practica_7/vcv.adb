@@ -12,9 +12,9 @@ use Ada.Numerics.Elementary_Functions;
 
 with Ada.Text_Io, Ada.Real_Time;
 
-
+with PID;
 procedure Vcv is
-
+    
    package Ent_ES is new Integer_IO(Integer);
 
   
@@ -39,14 +39,24 @@ procedure Vcv is
    type volante_t is digits 3 range -1.0 .. 1.0; 
    type accFreno_t is digits 3 range -1.0 .. 1.0;
    type radio_t is digits 7 range 0.0 .. 99999.99;  
-   
+   package control_curv is new PID (Real => Float, Entrada => err_lat_t, Salida => volante_t);
+    package control_vel is new PID (Real => Float, Entrada =>velocidad_t  , Salida => velocidad_t);
+    controlCurvatura : control_curv.Controlador;
+    kp_curv : constant Float := 0.02;
+    ki_curv : constant Float :=  0.0;
+    kd_curv : constant Float := 0.01; 
+    controlVelocidad : control_vel.Controlador;
+    kp_vel : constant Float := 0.1;
+    ki_vel : constant Float :=  0.0001;
+    kd_vel : constant Float := 0.0;
+    velDeseada : velocidad_t;
    c : Character;
 
    j : Integer := 1;
    count : Integer := 0;
 
 
-	 Kp, Ki, Kd : Float;
+	 --Kp, Ki, Kd : Float;
 	 
 	 us :Float; 
 
@@ -62,11 +72,14 @@ procedure Vcv is
 
    volante : volante_t;
    acelFreno : accFreno_t;
-   
-   y, cx, sx, ang, fang: Float;
-   
+   curv : Float;
+   --y, cx, sx, ang, fang: Float;
+   cosa : Boolean;
 
 begin
+
+  control_curv.Programar(controlCurvatura,kp_curv,ki_curv,kd_curv);
+  control_vel.Programar(controlVelocidad,kp_vel,ki_vel,kd_vel);
 
    GNAT.Sockets.Initialize;  -- initialize a specific package
    Create_Socket (Client);
@@ -76,8 +89,6 @@ begin
    Connect_Socket (Client, Address);
    Channel := Stream (Client);
    
-   Kp:=0.02;
-   Kd:=0.01;
 
 
    -- Esta es la cadena de configuración. Cambiar los números para los distintos modos
@@ -135,6 +146,39 @@ begin
     volante := 0.0;   -- Volante al centro (para modo lateral 3)
     refVelocidad := 10.0;  -- Velocidad 10m/s (para modo longitudinal 2)
     --------------------------------------------------------------------------------------------------------------------------
+  cosa := (TipoSig /= 3.0 and dist < distancia_t(200));
+    put_Line("CHECK: " & cosa'Image);
+    put_line("distSig: " & dist'Image);
+    if (TipoSig /= 3.0 and dist < distancia_t(20)) or Tipo /= 3.0   then
+      
+     
+      refVelocidad := velocidad_t(30);
+      
+    else
+      refVelocidad := velocidad_t(120);
+    end if;
+    
+    control_curv.Controlar(controlCurvatura, Err_lat, 0.0,volante);
+    if Err_ang > 2.6 then  -- Error grande hacia la derecha
+         volante := 1.0;
+      elsif Err_ang < -2.6 then  -- Error grande hacia la izquierda
+         volante := -1.0;
+      elsif Err_ang > 1.6 then  -- Error mediano hacia la derecha
+         volante := volante_t(Err_ang / 2.6) + volante_t(Err_lat / 100.0);
+      elsif Err_ang < -1.6 then  -- Error mediano hacia la izquierda
+         volante := volante_t(Err_ang / 2.6) + volante_t(Err_lat / 100.0);
+      else  -- Error pequeño
+         volante := volante_t(Err_ang / 1.6) + volante_t(Err_lat / 100.0);
+      end if;
+
+
+    --control_vel.Controlar(controlVelocidad, velDeseada, velocidad,refVelocidad );
+
+
+
+
+
+
 
     --- Se envían los comandos al coche
    Ada.Strings.Unbounded.Append (Source => ControlMsg, New_Item => volante_t'image(volante));
