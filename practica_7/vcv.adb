@@ -151,11 +151,16 @@ begin
     if (TipoSig /= 3.0 and dist < distancia_t(30)) or Tipo /= 3.0   then
       
      
-      refVelocidad := velocidad_t(30);
-      if Curvatura < 100.0 then
-        refVelocidad := velocidad_t(20);
+      --refVelocidad := velocidad_t(30);
+      --  if Curvatura < 100.0 then
+      --    refVelocidad := velocidad_t(20);
+      --  end if;
+      if curvatura /= 0.0 then
+        refVelocidad := velocidad_t(Sqrt(0.85*9.81 * Curvatura)); --relación velocidad curvatura
+      else 
+          refVelocidad := velocidad_t(Sqrt(0.85*9.81 * CurvaturaSig));
+
       end if;
-      
     else
       refVelocidad := velocidad_t(120);
     end if;
